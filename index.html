@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沖繩自駕遊 2025 ✦ 5/22–5/26</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ocean: #0E7FA8;
+    --ocean-light: #B8E4F2;
+    --ocean-pale: #EAF7FB;
+    --coral: #E5633A;
+    --coral-light: #FAEAE3;
+    --sand: #F5F0E8;
+    --sand-dark: #C9BFA8;
+    --forest: #2A6B4C;
+    --text: #1A1A1A;
+    --text-muted: #6B6B6B;
+    --white: #FFFFFF;
+    --radius: 12px;
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    background: var(--sand);
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(165deg, #0E4F72 0%, #0E7FA8 45%, #1BAACC 70%, #2EC4B6 100%);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0; height: 60px;
+    background: var(--sand);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 5px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.35);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 7vw, 64px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: #A8E6F0;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 36px;
+  }
+  .hero-dates {
+    display: inline-flex;
+    gap: 0;
+    background: rgba(255,255,255,0.15);
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.3);
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+  }
+  .hero-date {
+    padding: 10px 22px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .hero-date + .hero-date {
+    border-left: 1px solid rgba(255,255,255,0.25);
+  }
+  .hero-date span { display: block; font-size: 11px; opacity: 0.7; margin-bottom: 2px; }
+
+  /* ─── QUICK INFO ─── */
+  .quick-bar {
+    max-width: 860px;
+    margin: -20px auto 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .qb-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    box-shadow: 0 2px 16px rgba(14,79,114,0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .qb-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--ocean-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .qb-label { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
+  .qb-val { font-size: 14px; font-weight: 500; color: var(--text); }
+
+  /* ─── SECTION ─── */
+  .section { max-width: 860px; margin: 0 auto 60px; padding: 0 24px; }
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--ocean-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 22px;
+    background: var(--ocean);
+    border-radius: 3px;
+  }
+
+  /* ─── DAY CARDS ─── */
+  .day-grid { display: flex; flex-direction: column; gap: 24px; }
+  .day-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(14,79,114,0.07);
+    display: grid;
+    grid-template-columns: 96px 1fr;
+  }
+  .day-sidebar {
+    padding: 28px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    text-align: center;
+  }
+  .day-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--white);
+  }
+  .day-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+  .day-weekday { font-size: 11px; color: rgba(255,255,255,0.9); margin-top: 4px; font-weight: 400; }
+  .day-body { padding: 24px 28px; }
+  .day-theme {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .stops { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .stop {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+  .stop-time {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    padding-top: 3px;
+    letter-spacing: 0.3px;
+  }
+  .stop-content {}
+  .stop-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .stop-name a { color: var(--ocean); text-decoration: none; }
+  .stop-name a:hover { text-decoration: underline; }
+  .stop-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+    font-weight: 500;
+  }
+  .tag-eat { background: #FFF0E6; color: #C04A1A; }
+  .tag-see { background: var(--ocean-pale); color: #076080; }
+  .tag-stay { background: #EDF7ED; color: #1E6B3C; }
+  .tag-drive { background: #F5F5F5; color: #555; }
+
+  /* day color themes */
+  .dc-1 .day-sidebar { background: linear-gradient(160deg, #0E4F72, #0E7FA8); }
+  .dc-2 .day-sidebar { background: linear-gradient(160deg, #1B6B6B, #2EC4B6); }
+  .dc-3 .day-sidebar { background: linear-gradient(160deg, #2A6B4C, #3DA87A); }
+  .dc-4 .day-sidebar { background: linear-gradient(160deg, #5C3D8C, #8660C0); }
+  .dc-5 .day-sidebar { background: linear-gradient(160deg, #B03A2E, #E5633A); }
+
+  /* ─── TIPS ─── */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .tip-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--ocean);
+  }
+  .tip-icon { font-size: 24px; margin-bottom: 10px; }
+  .tip-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .tip-text { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--sand-dark);
+    margin-top: 20px;
+  }
+  footer strong { color: var(--ocean); }
+
+  @media (max-width: 600px) {
+    .day-card { grid-template-columns: 1fr; }
+    .day-sidebar { flex-direction: row; padding: 16px 20px; justify-content: flex-start; }
+    .hero { padding: 60px 20px 50px; }
+    .day-body { padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">🚗 &nbsp; 自駕遊攻略 &nbsp; 2025</div>
+  <h1>沖繩<br><em>Okinawa</em></h1>
+  <p class="hero-sub">南北縱貫 · 海島五日 · 自在旅程</p>
+  <div class="hero-dates">
+    <div class="hero-date"><span>出發</span>5月22日 (四)</div>
+    <div class="hero-date"><span>返程</span>5月26日 (一)</div>
+    <div class="hero-date"><span>天數</span>5天4夜</div>
+  </div>
+</header>
+
+<!-- QUICK INFO -->
+<div class="quick-bar">
+  <div class="qb-card">
+    <div class="qb-icon">🚗</div>
+    <div><div class="qb-label">交通方式</div><div class="qb-val">全程自駕</div></div>
+  </div>
+  <div class="qb-card">
+    <div class="qb-icon">🗺️</div>
+    <div><div class="qb-label">路線範圍</div><div class="qb-val">南部→中部→北部</div></div>
+  </div>
+  <div class="qb-card">
+    <div class="qb-icon">🏖️</div>
+    <div><div class="qb-label">季節</div><div class="qb-val">初夏 · 梅雨季</div></div>
+  </div>
+  <div class="qb-card">
+    <div class="qb-icon">🌡️</div>
+    <div><div class="qb-label">平均氣溫</div><div class="qb-val">24–29 °C</div></div>
+  </div>
+</div>
+
+<!-- ITINERARY -->
+<div class="section">
+  <h2 class="section-title">五日行程總覽</h2>
+  <div class="day-grid">
+
+    <!-- DAY 1 -->
+    <div class="day-card dc-1">
+      <div class="day-sidebar">
+        <div class="day-num">01</div>
+        <div class="day-label">Day</div>
+        <div class="day-weekday">5/22 四</div>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">抵達那霸 · 南部舊城探索</div>
+        <ul class="stops">
+          <li class="stop">
+            <div class="stop-time">下午</div>
+            <div class="stop-content">
+              <div class="stop-name">✈ 那霸機場抵達 · 取租車 <span class="tag tag-drive">交通</span></div>
+              <div class="stop-desc">建議提前在 Klook / Times Car 預約，機場取車約 30 分鐘辦理</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">15:30</div>
+            <div class="stop-content">
+              <div class="stop-name">首里城公園 <span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">琉球王朝歷史遺跡，列入世界文化遺產，修復中仍值得一訪</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">18:00</div>
+            <div class="stop-content">
+              <div class="stop-name">國際通逛街 <span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">沖繩最熱鬧的購物街，藥妝、特產、泡盛一次買齊</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">19:30</div>
+            <div class="stop-content">
+              <div class="stop-name">晚餐：琉球料理 or 牧志公設市場周邊海鮮 <span class="tag tag-eat">美食</span></div>
+              <div class="stop-desc">推薦 御殿山（島豚料理）或 海鮮居酒屋</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">住宿</div>
+            <div class="stop-content">
+              <div class="stop-name">那霸市區飯店 <span class="tag tag-stay">住宿</span></div>
+              <div class="stop-desc">推薦：Richmond Hotel 那霸久茂地 / Vessel Hotel Campana 沖繩</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-card dc-2">
+      <div class="day-sidebar">
+        <div class="day-num">02</div>
+        <div class="day-label">Day</div>
+        <div class="day-weekday">5/23 五</div>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">中部海岸 · 美國村夕陽</div>
+        <ul class="stops">
+          <li class="stop">
+            <div class="stop-time">09:00</div>
+            <div class="stop-content">
+              <div class="stop-name">殘波岬燈塔 <span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">白色燈塔俯瞰湛藍太平洋，沖繩最西端壯闊海景</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">10:30</div>
+            <div class="stop-content">
+              <div class="stop-name">萬座毛 <span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">恩納村必拍象鼻岩，從琉球石灰岩眺望珊瑚礁海灣</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">12:30</div>
+            <div class="stop-content">
+              <div class="stop-name">午餐：浜の家海鮮料理（恩納村）<span class="tag tag-eat">美食</span></div>
+              <div class="stop-desc">台灣人爆多必訪，招牌海膽焗烤龍蝦超值</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">14:30</div>
+            <div class="stop-content">
+              <div class="stop-name">Blue Cave 青之洞窟浮潛 <span class="tag tag-see">活動</span></div>
+              <div class="stop-desc">恩納村最熱門潛點，陽光折射蔚藍水色夢幻唯美</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">17:30</div>
+            <div class="stop-content">
+              <div class="stop-name">美國村（American Village）夕陽 <span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">摩天輪前看日落是打卡經典，晚餐在此覓食</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">住宿</div>
+            <div class="stop-content">
+              <div class="stop-name">恩納村 or 北谷飯店 <span class="tag tag-stay">住宿</span></div>
+              <div class="stop-desc">推薦：ANA Intercontinental Manza Beach / Vessel Hotel Campana Okinawa</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-card dc-3">
+      <div class="day-sidebar">
+        <div class="day-num">03</div>
+        <div class="day-label">Day</div>
+        <div class="day-weekday">5/24 六</div>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">北部秘境 · 古宇利島 · 美麗海</div>
+        <ul class="stops">
+          <li class="stop">
+            <div class="stop-time">09:00</div>
+            <div class="stop-content">
+              <div class="stop-name">古宇利島 <span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">跨越古宇利大橋，蒂芬妮藍海水；必訪心形岩（ハートロック）</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">11:00</div>
+            <div class="stop-content">
+              <div class="stop-name">古宇利島蝦蝦飯 <span class="tag tag-eat">美食</span></div>
+              <div class="stop-desc">NO.1 人氣餐車，蒜味奶油大蝦配白飯，排隊也值得</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">12:30</div>
+            <div class="stop-content">
+              <div class="stop-name">今歸仁城跡 <span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">世界文化遺產，北山城遺跡，層疊石垣氣勢磅礴</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">14:00</div>
+            <div class="stop-content">
+              <div class="stop-name">沖繩美麗海水族館 <span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">全球最大水族館之一，鯨鯊與蝠鱝共游黑潮之海水槽</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">17:00</div>
+            <div class="stop-content">
+              <div class="stop-name">翡翠海灘（翡翠ビーチ）<span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">水族館旁免費海灘，可游泳戲水看夕陽</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">住宿</div>
+            <div class="stop-content">
+              <div class="stop-name">本部町 or 名護市飯店 <span class="tag tag-stay">住宿</span></div>
+              <div class="stop-desc">推薦：Orion 本部度假 SPA 飯店（含早餐景觀超值）</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day-card dc-4">
+      <div class="day-sidebar">
+        <div class="day-num">04</div>
+        <div class="day-label">Day</div>
+        <div class="day-weekday">5/25 日</div>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">JUNGLIA 主題樂園 · 返回那霸</div>
+        <ul class="stops">
+          <li class="stop">
+            <div class="stop-time">09:00</div>
+            <div class="stop-content">
+              <div class="stop-name">JUNGLIA 叢麗亞樂園 🦕 <span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">2025 新開幕！Dinosaur Safari 暴龍追擊、Sky Phoenix 飛越叢林、熱氣球體驗，沖繩最新亮點</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">13:00</div>
+            <div class="stop-content">
+              <div class="stop-name">名護市區午餐 <span class="tag tag-eat">美食</span></div>
+              <div class="stop-desc">推薦 琉球の牛燒肉（人氣排隊店）或名護漁港海鮮丼</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">15:00</div>
+            <div class="stop-content">
+              <div class="stop-name">名護鳳梨園（可選）<span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">沖繩特產鳳梨，搭小火車遊覽園區，品嚐鳳梨酒</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">17:00</div>
+            <div class="stop-content">
+              <div class="stop-name">AEON 夢樂城沖繩來客夢 <span class="tag tag-see">購物</span></div>
+              <div class="stop-desc">沖繩最大購物中心，藥妝、伴手禮、超市一次解決</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">住宿</div>
+            <div class="stop-content">
+              <div class="stop-name">那霸市區飯店（近機場）<span class="tag tag-stay">住宿</span></div>
+              <div class="stop-desc">最後一晚建議住近機場，方便隔天早班還車</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="day-card dc-5">
+      <div class="day-sidebar">
+        <div class="day-num">05</div>
+        <div class="day-label">Day</div>
+        <div class="day-weekday">5/26 一</div>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">南部世界遺產 · 返台</div>
+        <ul class="stops">
+          <li class="stop">
+            <div class="stop-time">08:30</div>
+            <div class="stop-content">
+              <div class="stop-name">齋場御嶽（セーファーウタキ）<span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">琉球最高聖地，世界文化遺產，石灰岩巨石形成的神秘三角穴</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">10:00</div>
+            <div class="stop-content">
+              <div class="stop-name">知念岬公園 <span class="tag tag-see">景點</span></div>
+              <div class="stop-desc">俯瞰珊瑚礁海灣全景，薄霧晨光最美，免費入場</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">11:30</div>
+            <div class="stop-content">
+              <div class="stop-name">午餐：那霸市區 or 機場美食 <span class="tag tag-eat">美食</span></div>
+              <div class="stop-desc">推薦沖繩麵（沖縄そば）或機場 2F 餐廳用餐</div>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="stop-time">13:00</div>
+            <div class="stop-content">
+              <div class="stop-name">還車 · 那霸機場 ✈ <span class="tag tag-drive">交通</span></div>
+              <div class="stop-desc">提前 2 小時到機場，國際線免稅店最後採購</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TIPS -->
+<div class="section">
+  <h2 class="section-title">自駕旅遊小提醒</h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🚗</div>
+      <div class="tip-title">靠左行駛</div>
+      <div class="tip-text">日本靠左行驶，方向盤在右側，台灣人初次自駕需注意，建議市區外先熟悉。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📱</div>
+      <div class="tip-title">導航工具</div>
+      <div class="tip-text">推薦使用 Google Maps 或日本版「Yahoo!カーナビ」，輸入 MAP CODE 更準確。</div>
+    </div>
+    <div class="tip-card" style="border-color: var(--coral);">
+      <div class="tip-icon">⛽</div>
+      <div class="tip-title">加油注意</div>
+      <div class="tip-text">沖繩油價比本州略高，國道 58 號沿線加油站最多，還車前要加滿油。</div>
+    </div>
+    <div class="tip-card" style="border-color: var(--forest);">
+      <div class="tip-icon">🌧️</div>
+      <div class="tip-title">梅雨備案</div>
+      <div class="tip-text">5 月為梅雨季，建議安排室內景點（水族館、Outlet）作為雨天備用方案。</div>
+    </div>
+    <div class="tip-card" style="border-color: #8660C0;">
+      <div class="tip-icon">🅿️</div>
+      <div class="tip-title">停車場</div>
+      <div class="tip-text">主要景點多有免費停車場，首里城、美麗海水族館停車費需另計（約 ¥200–500）。</div>
+    </div>
+    <div class="tip-card" style="border-color: var(--coral);">
+      <div class="tip-icon">💴</div>
+      <div class="tip-title">預算估算</div>
+      <div class="tip-text">5 天 4 夜每人預估 TWD 25,000–44,000（不含購物），含機票、租車、住宿、餐食。</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>🌊 <strong>沖繩自駕遊 · 2025年5月22–26日</strong> &nbsp;|&nbsp; 行程僅供參考，請依實際情況彈性調整</p>
+  <p style="margin-top: 6px; font-size: 11px;">美麗海水族館 3–9月營業至 20:00 ✦ JUNGLIA 請提前於官網購票 ✦ 齋場御嶽旺季需預約</p>
+</footer>
+
+</body>
+</html>
